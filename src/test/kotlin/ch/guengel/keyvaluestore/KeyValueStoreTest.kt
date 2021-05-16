@@ -83,6 +83,22 @@ internal class KeyValueStoreTest {
     }
 
     @Test
+    fun `should handle any object`() {
+        data class TestClass(val str: String, val num: Int, val dec: Double)
+
+        val testValue = TestClass("answer", 42, 42.0)
+        keyValueStore.put("test-any", testValue)
+
+        val actualValue: Any? = keyValueStore.get("test-any")
+
+        @Suppress("UNCHECKED_CAST")
+        val hashMap = actualValue as LinkedHashMap<String,Any>
+        assertThat(actualValue["str"]).isEqualTo("answer")
+        assertThat(actualValue["num"]).isEqualTo(42)
+        assertThat(actualValue["dec"]).isEqualTo(42.0)
+    }
+
+    @Test
     fun `should remove key and value`() {
          keyValueStore.put("test-string", "string")
 
