@@ -12,7 +12,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
 
-        <kotlin.version>1.5.0</kotlin.version>
+        <kotlin.version>1.6.0</kotlin.version>
         <jackson.version>2.12.0</jackson.version>
         <junit-jupiter.version>5.7.1</junit-jupiter.version>
         <assertk.version>0.24</assertk.version>
